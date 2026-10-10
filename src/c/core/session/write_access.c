@@ -145,7 +145,7 @@ uint16_t uxr_prepare_output_stream(
 
 // Continuous fragment mode
 
-bool on_full_output_buffer_fragmented(
+static bool on_full_output_buffer_fragmented(
         ucdrBuffer* ub,
         void* args)
 {

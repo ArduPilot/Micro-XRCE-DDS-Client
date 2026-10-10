@@ -122,7 +122,7 @@ void uxr_init_framing_io(
     framing_io->rb_tail = 0;
 }
 
-bool uxr_framing_write_transport(
+static bool uxr_framing_write_transport(
         uxrFramingIO* framing_io,
         uxr_write_cb write_cb,
         void* cb_arg,
@@ -211,7 +211,7 @@ size_t uxr_write_framed_msg(
     return cond ? (uint16_t)(len) : 0;
 }
 
-size_t uxr_framing_read_transport(
+static size_t uxr_framing_read_transport(
         uxrFramingIO* framing_io,
         uxr_read_cb read_cb,
         void* cb_arg,

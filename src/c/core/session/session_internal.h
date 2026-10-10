@@ -32,6 +32,10 @@ bool uxr_prepare_stream_to_write_submessage(
         uint8_t submessage_id,
         uint8_t mode);
 
+bool uxr_run_session_until_pong(
+        uxrSession* session,
+        int timeout_ms);
+
 #ifdef __cplusplus
 }
 #endif // ifdef __cplusplus

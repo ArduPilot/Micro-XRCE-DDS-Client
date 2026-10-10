@@ -7,6 +7,15 @@
 #elif defined(UCLIENT_PLATFORM_FREERTOS_PLUS_TCP)
 #include "FreeRTOS.h"
 #include "task.h"
+#elif !defined(UCLIENT_PLATFORM_ZEPHYR)
+#include <unistd.h>
+#if !defined(_POSIX_TIMERS) || (_POSIX_TIMERS <= 0)
+/* The C library does not declare clock_gettime() (e.g. newlib on bare-metal targets),
+ * so the application is expected to provide it. */
+int clock_gettime(
+        clockid_t clock_id,
+        struct timespec* tp);
+#endif /* if !defined(_POSIX_TIMERS) || (_POSIX_TIMERS <= 0) */
 #endif /* ifdef WIN32 */
 
 //==================================================================
